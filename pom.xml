@@ -6,7 +6,7 @@
 
   <groupId>org.shabunc.maven</groupId>
   <artifactId>processit</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>maven-plugin</packaging>
 
 
@@ -28,6 +28,9 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- github server corresponds to entry in ~/.m2/settings.xml -->
+    <github.global.server>github</github.global.server>
   </properties>
 
 
@@ -52,6 +55,14 @@
     </dependency>
 
   </dependencies>
+
+<distributionManagement>
+    <repository>
+      <id>github.repo</id>
+      <name>my maven repository</name>
+      <url>file://${project.build.directory}/mvn-repo</url>
+    </repository>
+  </distributionManagement>
 
 
   <build>
@@ -97,6 +108,32 @@
           </execution>
         </executions>
       </plugin>
+
+    <plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.11</version>
+        <configuration>
+          <message>Maven artifacts for ${project.version}</message>
+          <noJekyll>true</noJekyll>
+          <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+          <branch>refs/heads/mvn-repo</branch>
+          <includes><include>**/*</include></includes>
+          <merge>true</merge>
+          <repositoryName>processit-maven-plugin</repositoryName>
+          <repositoryOwner>Schagen</repositoryOwner>
+          <server>github</server>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <phase>deploy</phase>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 
