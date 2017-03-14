@@ -58,7 +58,7 @@
 
 <distributionManagement>
     <repository>
-      <id>github.repo</id>
+      <id>github</id>
       <name>my maven repository</name>
       <url>file://${project.build.directory}/mvn-repo</url>
     </repository>
@@ -121,7 +121,7 @@
           <includes><include>**/*</include></includes>
           <merge>true</merge>
           <repositoryName>processit-maven-plugin</repositoryName>
-          <repositoryOwner>Schagen</repositoryOwner>
+          <repositoryOwner>schahen</repositoryOwner>
           <server>github</server>
         </configuration>
         <executions>
