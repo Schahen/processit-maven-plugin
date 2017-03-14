@@ -6,7 +6,7 @@
 
   <groupId>org.shabunc.maven</groupId>
   <artifactId>processit</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
 
@@ -38,14 +38,16 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
-      <version>3.0</version>
+      <version>2.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.plugin-tools</groupId>
       <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.4</version>
+      <version>3.2</version>
       <scope>provided</scope>
     </dependency>
+
+
 
     <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
     <dependency>
