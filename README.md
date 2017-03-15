@@ -17,7 +17,7 @@ Here's example of it's usage:
         <groupId>org.shabunc.maven</groupId>
         <artifactId>processit</artifactId>
         <!-- This is indeed the latest version -->
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <dependencies>
           <dependency>
             <groupId>my.very.own.processors.collection</groupId>
@@ -50,6 +50,7 @@ interface, `org.shabunc.maven.Processor` which have following method
 declarations:
 
 ```java
+void setProject(MavenProject mavenProject);
 Iterator<File> getFiles();
 void process(File file);
 ```

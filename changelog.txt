@@ -1,0 +1,4 @@
+
+[1.0.2] 
++1 new method declaration in Processor interface
+Processor interface declares 3 method, new one is setProject(MavenProject mavenProject))

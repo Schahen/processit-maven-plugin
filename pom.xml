@@ -6,7 +6,7 @@
 
   <groupId>org.shabunc.maven</groupId>
   <artifactId>processit</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
   <packaging>maven-plugin</packaging>
 
 
@@ -47,6 +47,12 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-project -->
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.2.1</version>
+    </dependency>
 
 
     <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->

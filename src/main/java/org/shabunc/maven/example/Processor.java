@@ -5,6 +5,7 @@ import org.apache.commons.io.IOCase;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.maven.project.MavenProject;
 
 import java.io.File;
 import java.util.Iterator;
@@ -23,5 +24,10 @@ public class Processor implements org.shabunc.maven.Processor {
   @Override
   public void process(File file) {
     System.out.println("BINGO BONGO!!!! =>" + file.getName());
+  }
+
+  @Override
+  public void setProject(MavenProject mavenProject) {
+
   }
 }

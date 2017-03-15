@@ -3,9 +3,11 @@ package org.shabunc.maven;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -14,6 +16,9 @@ import java.util.Iterator;
 
 @Mojo(name = "run", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class Plugin extends AbstractMojo {
+
+  @Component
+  MavenProject mavenProject;
 
   @Parameter(property = "processors")
   private String[] processors;
@@ -25,6 +30,8 @@ public class Plugin extends AbstractMojo {
         Class<?> clazz = Class.forName(processorName);
         Constructor<?> ctr = clazz.getConstructor();
         Processor processor = (Processor) ctr.newInstance();
+
+        processor.setProject(mavenProject);
 
         Iterator<File> it = processor.getFiles();
         while (it.hasNext()) {
